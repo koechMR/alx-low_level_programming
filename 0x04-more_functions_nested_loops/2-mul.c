@@ -2,8 +2,9 @@
 
 /**
   *mul - multiply two fuction
-  *@a, b: parameter to be checked
-  *Return: mul a * b
+  *@a: variable
+  *@b: variable
+  *Return: a * b
   */
 int mul(int a, int b)
 {
