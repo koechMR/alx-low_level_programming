@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "main.h"
 /**
-*_concat - functin that concatenate two srings
+*str_concat - functin that concatenate two srings
 *@s1: first input
 *@s2: second input
 *Return: NULL if failure
