@@ -10,9 +10,10 @@
 
 listint_t *add_nodeint(listint_t **head, const int n)
 {
-listint_t *new_class = NULL;
-
+listint_t *new_class;
 new_class = malloc(sizeof(listint_t));
+if (new_class == NULL)
+return (NULL);
 new_class->n = n;
 new_class->next = *head;
 *head = new_class;
