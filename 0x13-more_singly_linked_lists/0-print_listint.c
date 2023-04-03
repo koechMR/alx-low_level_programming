@@ -1,7 +1,5 @@
 #include "lists.h"
 #include <stdio.h>
-#include <stddef.h>
-
 /**
 *print_listint - print all the elemensts
 *@h: pointer to the head of the list
@@ -14,9 +12,9 @@ size_t count = 0;
 
 while (h != NULL)
 {
+count++;
 printf("%d\n", h->n);
 h = h->next;
-count++;
 }
 return (count);
 }
