@@ -11,23 +11,27 @@
 unsigned int binary_to_uint(const char *b)
 {
 
-	unsigned int num = 0;
-	unsigned int new = 1;
-
-	int slen = strlen(b);
-	int i;
+	unsigned int new = 0;
+	int num = 0;
 
 	if (b == NULL)
 		return (0);
 
-	for (i = slen - 1; i >= 0; i--)
+	while (b[num] != '\0')
 	{
-		if (b[i] == '1')
-			num += new;
-		else if (b[i] != '0')
+		if (b[num] == '0')
+		{
+			new = (new << 1);
+		}
+		else if (b[num] == '1')
+		{
+			new  = (new  << 1) | 1;
+		}
+		else
+		{
 			return (0);
-
-		new *= 2;
+		}
+		num++;
 	}
-	return (num);
+	return (new);
 }
