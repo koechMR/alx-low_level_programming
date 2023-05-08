@@ -10,25 +10,27 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int num, sec = 1, len = 0;
+	int bk, len, num;
+	mode_t mode = S_IRUSR | S_IWUSR;
 
 	if (filename == NULL)
 		return (-1);
 
-	num = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
-	if (num == -1)
+	bk = open(filename, O_WRONLY | O_CREAT | O_TRUNC, mode);
+	if (bk == -1)
 		return (-1);
-
 	if (text_content != NULL)
 	{
-		while (text_content[len])
-			len++;
+		for (len = 0; text_content[len] != '\0'; len++)
+			continue;
 
-		sec = write(num, text_content, len);
-		if (sec == -1)
-			sec = -1;
+		num = write(bk, text_content, len);
+		if (num == -1)
+		{
+			close(bk);
+			return (-1);
+		}
 	}
-	close(num);
-
-	return (sec);
+	close(bk);
+	return (1);
 }
