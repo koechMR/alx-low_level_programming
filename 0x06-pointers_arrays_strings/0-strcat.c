@@ -1,7 +1,7 @@
 #include "main.h"
 /**
   *_strcat - fuction that concatinates two strings
-  *@dest: parameter checked
+  *@dest: parameter to be checked
   *@src: to be checked
   *Return: 0
   */
